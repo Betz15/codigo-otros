@@ -1,0 +1,35 @@
+import java.util.Scanner; //agrege 
+
+public class Codigo6 {
+	public static void main(String[] args) {
+		int[] n = new int[20];//agregue new
+		Scanner scanner = new Scanner(System.in);
+
+		// Generar números aleatorios
+		for (int i = 0; i < 20; i++) {//faltaba un +
+			n[i] = (int)(Math.random() * 381) + 20;
+			System.out.print(n[i] + " ");
+		}
+
+		// Validación de entrada (solo permite 1 o 2)
+		int opcion;
+		do {
+			System.out.println("\n¿Qué números quiere resaltar? ");
+			System.out.print("(1 – los múltiplos de 5, 2 – los múltiplos de 7): ");
+			opcion = scanner.nextInt();
+		} while (opcion != 1 && opcion != 2); // Repite si no es 1 ni 2
+
+		int multiplo = (opcion == 1) ? 5 : 7;//operado ternario al reves 
+
+		// Mostrar resultados cambie llaves y sout y cambie por for ya que tenia foreach 
+		for (int e : n) {
+			if (e % multiplo == 0) {
+				System.out.print("[" + e + "] ");
+			} else {
+				System.out.print(e + " ");
+			}
+		}
+
+		scanner.close();//cerre scaner 
+	}
+}
